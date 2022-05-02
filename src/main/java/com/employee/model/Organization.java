@@ -14,16 +14,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Employee {
-
+public class Organization {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Column(name = "organization")
+	private String organization;
 	
-	@Column(name = "name") // default length 255
-	private String name;
-	
-	@Column(name = "age")
-	private int age;
-		
+	@Column(name = "location")
+	private String location;
+
 }
