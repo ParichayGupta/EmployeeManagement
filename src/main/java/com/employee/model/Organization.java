@@ -18,6 +18,9 @@ public class Organization {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "organizationId")
+	private int organizationId;
+	
 	@Column(name = "organization")
 	private String organization;
 	
