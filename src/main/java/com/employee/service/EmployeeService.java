@@ -34,4 +34,23 @@ public class EmployeeService {
 		return employeeRepository.findByName(name);
 	}
 
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		employeeRepository.deleteById(id);
+	}
+
+	public String updateEmployeeName(int id,String name) {
+		Optional<Employee> emp = employeeRepository.findById(id);
+		if(emp != null) {
+			Employee employee = emp.get();
+			employee.setName(name);
+			employeeRepository.save(employee);
+			return "Employee with id:"+id+" is updated";
+		}
+		else {
+			return "Employee with id: "+ id +" does not exist";
+		}
+		
+	}
+
 }
