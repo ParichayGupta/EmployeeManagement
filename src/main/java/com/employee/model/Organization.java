@@ -1,10 +1,16 @@
 package com.employee.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.core.sym.Name;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +30,11 @@ public class Organization {
 	@Column(name = "organization")
 	private String organization;
 	
-	@Column(name = "location")
-	private String location;
+	@OneToMany(targetEntity = Location.class)
+	@JoinColumn(name = "OrgId",referencedColumnName = "organizationId")
+	private List<Location> locations;
 
+	@OneToMany(targetEntity = Employee.class)
+	@JoinColumn(name = "OrgId",referencedColumnName = "organizationId")
+	private List<Employee> employees;
 }
