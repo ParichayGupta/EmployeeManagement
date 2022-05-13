@@ -1,9 +1,14 @@
 package com.employee.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,11 +19,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Location {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int locationId;
-	
+
 	private String location;
+	
+	@OneToMany(targetEntity = Employee.class)
+	@JoinColumn(referencedColumnName = "locationId", name = "locationId")
+	private List<Employee> employees;
 
 }

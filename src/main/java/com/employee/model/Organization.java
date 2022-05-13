@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 public class Organization {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "organizationId")
 	private int organizationId;
 	
