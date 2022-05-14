@@ -35,6 +35,7 @@ public class EmployeeController {
 	public List<Employee> getAllEmployees() {
 		return employeeService.getAllEmployees();
 	}
+	
 //	Get employee by id
 	@GetMapping(value = "/employee/{id}")
 	public Optional<Employee> getEmployeeById(@PathVariable int id) {

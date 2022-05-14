@@ -21,6 +21,7 @@ public class OrganizationService {
 		return organizationRepository.save(organization);
 	}
 
+//	emp of org by org id
 	public List<Employee> getEmployeesByOrganizationId(int organiztionId) {
 		Optional<Organization> organization = organizationRepository.findById(organiztionId);
 		List<Employee> employees = null;
